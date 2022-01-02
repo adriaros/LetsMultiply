@@ -10,8 +10,6 @@ import SwiftUI
 struct LevelView: View {
     
     var body: some View {
-        
-        NavigationView {
             
             VStack {
                 
@@ -48,19 +46,18 @@ struct LevelView: View {
                 Spacer()
                 
                 NavigationLink(
-                     destination: LevelView(),
+                     destination: GameView(),
                      label: {
                          Text("START")
                      })
                 
                 Spacer()
             }
-        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-   
+struct LevelView_Previews: PreviewProvider {
+
     static var previews: some View {
         LevelView()
     }
