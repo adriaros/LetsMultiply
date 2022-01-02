@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LevelView: View {
     
+    @State private var settings: GameSettingsProtocol = GameSettings()
+    
     var body: some View {
             
             VStack {
@@ -25,19 +27,19 @@ struct LevelView: View {
                     Spacer()
                     
                     Button("Easy") {
-                        
+                        self.settings.level = .easy
                     }
                     
                     Spacer()
                     
                     Button("Medium") {
-                        
+                        self.settings.level = .medium
                     }
                     
                     Spacer()
                     
                     Button("Hard") {
-                        
+                        self.settings.level = .hard
                     }
                     
                     Spacer()
@@ -46,7 +48,7 @@ struct LevelView: View {
                 Spacer()
                 
                 NavigationLink(
-                     destination: GameView(),
+                    destination: GameView(settings: settings),
                      label: {
                          Text("START")
                      })
