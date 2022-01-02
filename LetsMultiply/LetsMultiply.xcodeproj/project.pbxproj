@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1148E9FD2781BC4A00238621 /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148E9FC2781BC4A00238621 /* LevelView.swift */; };
 		11CA63532780E9870043256F /* LetsMultiplyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CA63522780E9870043256F /* LetsMultiplyApp.swift */; };
-		11CA63552780E9870043256F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CA63542780E9870043256F /* ContentView.swift */; };
+		11CA63552780E9870043256F /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CA63542780E9870043256F /* WelcomeView.swift */; };
 		11CA63572780E9880043256F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11CA63562780E9880043256F /* Assets.xcassets */; };
 		11CA635A2780E9880043256F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11CA63592780E9880043256F /* Preview Assets.xcassets */; };
 		11CA63642780E9880043256F /* LetsMultiplyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CA63632780E9880043256F /* LetsMultiplyTests.swift */; };
@@ -34,9 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1148E9FC2781BC4A00238621 /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		11CA634F2780E9870043256F /* LetsMultiply.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsMultiply.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11CA63522780E9870043256F /* LetsMultiplyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsMultiplyApp.swift; sourceTree = "<group>"; };
-		11CA63542780E9870043256F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		11CA63542780E9870043256F /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		11CA63562780E9880043256F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11CA63592780E9880043256F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		11CA635F2780E9880043256F /* LetsMultiplyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LetsMultiplyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,7 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				11CA63522780E9870043256F /* LetsMultiplyApp.swift */,
-				11CA63542780E9870043256F /* ContentView.swift */,
+				11CA63542780E9870043256F /* WelcomeView.swift */,
+				1148E9FC2781BC4A00238621 /* LevelView.swift */,
 				11CA63562780E9880043256F /* Assets.xcassets */,
 				11CA63582780E9880043256F /* Preview Content */,
 			);
@@ -257,7 +260,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11CA63552780E9870043256F /* ContentView.swift in Sources */,
+				11CA63552780E9870043256F /* WelcomeView.swift in Sources */,
+				1148E9FD2781BC4A00238621 /* LevelView.swift in Sources */,
 				11CA63532780E9870043256F /* LetsMultiplyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
