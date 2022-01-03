@@ -27,11 +27,15 @@ protocol GameSettingsProtocol {
     var numberOfQuestions: Int { get }
     var questions: [Question] { get }
     var isGameOver: Bool { get }
-    var currentQuestion: Int { get set }
-    var level: Level { get set }
+    var currentQuestionNumber: Int { get }
+    var currentQuestion: Question { get }
+    var level: Level! { get set }
+    var mark: String! { get }
+    func updateQuestion()
+    func update(progress correct: Bool)
 }
 
-struct GameSettings: GameSettingsProtocol {
+class GameSettings: GameSettingsProtocol {
         
     var numberOfQuestions: Int = 0
     
@@ -39,23 +43,31 @@ struct GameSettings: GameSettingsProtocol {
     
     var isGameOver = false
 
-    var currentQuestion = 0 {
+    var currentQuestionNumber = 0 {
         didSet {
-            isGameOver = (currentQuestion == numberOfQuestions - 1)
+            isGameOver = (currentQuestionNumber == numberOfQuestions)
         }
     }
     
-    var level: Level = .easy {
+    func updateQuestion() {
+        currentQuestionNumber += 1
+    }
+    
+    var currentQuestion: Question {
+        questions.count > 0 ? questions[currentQuestionNumber] : Question(multiplicand: 1, multiplier: 1)
+    }
+    
+    var level: Level! {
         didSet {
             switch level {
-            case .easy:
-                numberOfQuestions = 5
-                questions = createQuestions(numberOfQuestions)
             case .medium:
                 numberOfQuestions = 10
                 questions = createQuestions(numberOfQuestions)
             case .hard:
                 numberOfQuestions = 20
+                questions = createQuestions(numberOfQuestions)
+            default:
+                numberOfQuestions = 5
                 questions = createQuestions(numberOfQuestions)
             }
         }
@@ -65,5 +77,17 @@ struct GameSettings: GameSettingsProtocol {
         var arrayOfQuestions: [Question] = []
         for _ in 0..<number { arrayOfQuestions.append(Question(multiplicand: Int.random(in: 1..<10), multiplier: Int.random(in: 1..<11))) }
         return arrayOfQuestions
+    }
+    
+    private var progress: [Bool] = []
+
+    func update(progress correct: Bool) {
+        progress.append(correct)
+    }
+    
+    var mark: String! {
+        guard progress.count > 0 else { return "" }
+        let numberOfcorrects = progress.filter { $0 }.count
+        return "\(numberOfcorrects) / \(progress.count)"
     }
 }
