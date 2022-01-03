@@ -55,6 +55,10 @@ struct LevelView: View {
                 
                 Spacer()
             }
+        
+            .onAppear {
+                settings = GameSettings()
+            }
     }
 }
 
