@@ -17,7 +17,7 @@ struct GameView: View {
     }
     
     private var finishedTitleText: String {
-        "You've finished the challenge"
+        "CONGRATULATIONS!!\n\nYou've finished the challenge"
     }
 
     var body: some View {
@@ -36,17 +36,22 @@ struct GameView: View {
             
             Spacer()
             
-            Text("\(settings.currentQuestion.multiplier) x \(settings.currentQuestion.multiplicand)")
-                        
-            TextField("Write here the result", text: $result)
-                                    .keyboardType(.decimalPad)
-                                    .padding(.horizontal, 100)
+            HStack {
+                
+                Text("\(settings.currentQuestion.multiplier) x \(settings.currentQuestion.multiplicand)")
+                    .padding(.horizontal, 60)
+                
+                TextField("Write here the result", text: $result)
+                                        .keyboardType(.decimalPad)
+                                        .padding(.horizontal, 12)
+            }
             
             Spacer()
             
             Button("Submit") {
                 onSubmit()
             }
+            .selected(true)
             
             Spacer()
         }
@@ -57,6 +62,7 @@ struct GameView: View {
             
             Text(finishedTitleText)
                 .font(.title)
+                .multilineTextAlignment(.center)
             
             Spacer()
             

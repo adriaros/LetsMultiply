@@ -29,6 +29,7 @@ struct WelcomeView: View {
                      label: {
                          Text("START")
                      })
+                    .selected(true)
                  
                 Spacer()
             }
