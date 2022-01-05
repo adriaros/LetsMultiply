@@ -38,10 +38,7 @@ struct LevelView: View {
                         self.level.type = .easy
                         self.disabled = false
                     }
-                    .padding()
-                    .background(level.type == .easy ? .green.opacity(0.25) : .gray.opacity(0.2))
-                    .foregroundColor(.black)
-                    .cornerRadius(4)
+                    .selected(level.type == .easy)
 
                     Spacer()
                     
@@ -50,10 +47,7 @@ struct LevelView: View {
                         self.level.type = .medium
                         self.disabled = false
                     }
-                    .padding()
-                    .background(level.type == .medium ? .green.opacity(0.25) : .gray.opacity(0.2))
-                    .foregroundColor(.black)
-                    .cornerRadius(4)
+                    .selected(level.type == .medium)
                     
                     Spacer()
                     
@@ -62,10 +56,7 @@ struct LevelView: View {
                         self.level.type = .hard
                         self.disabled = false
                     }
-                    .padding()
-                    .background(level.type == .hard ? .green.opacity(0.25) : .gray.opacity(0.2))
-                    .foregroundColor(.black)
-                    .cornerRadius(4)
+                    .selected(level.type == .hard)
                     
                     Spacer()
                 }
@@ -77,10 +68,7 @@ struct LevelView: View {
                      label: {
                          Text("START")
                      })
-                    .padding()
-                    .background(disabled ? .gray.opacity(0.2) : .blue.opacity(0.25))
-                    .foregroundColor(.black)
-                    .cornerRadius(4)
+                    .selected(!disabled)
                     .disabled(disabled)
                 
                 Spacer()
@@ -89,6 +77,7 @@ struct LevelView: View {
             .onAppear {
                 settings = GameSettings()
                 level = LevelViewLevel()
+                disabled = true
             }
     }
 }
