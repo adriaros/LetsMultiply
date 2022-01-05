@@ -11,6 +11,7 @@ enum Level: Equatable {
     case easy
     case medium
     case hard
+    case none
 }
 
 struct Question {

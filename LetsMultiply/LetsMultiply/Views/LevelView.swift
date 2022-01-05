@@ -7,9 +7,15 @@
 
 import SwiftUI
 
+struct LevelViewLevel {
+    var type: Level = .none
+}
+
 struct LevelView: View {
     
     @State private var settings: GameSettingsProtocol = GameSettings()
+    @State private var level = LevelViewLevel()
+    @State private var disabled = true
     
     var body: some View {
             
@@ -19,6 +25,7 @@ struct LevelView: View {
                     .multilineTextAlignment(.center)
                     .font(.title)
                     .foregroundColor(.red)
+                    .padding()
                 
                 Spacer()
                 
@@ -28,19 +35,37 @@ struct LevelView: View {
                     
                     Button("Easy") {
                         self.settings.level = .easy
+                        self.level.type = .easy
+                        self.disabled = false
                     }
-                    
+                    .padding()
+                    .background(level.type == .easy ? .green.opacity(0.25) : .gray.opacity(0.2))
+                    .foregroundColor(.black)
+                    .cornerRadius(4)
+
                     Spacer()
                     
                     Button("Medium") {
                         self.settings.level = .medium
+                        self.level.type = .medium
+                        self.disabled = false
                     }
+                    .padding()
+                    .background(level.type == .medium ? .green.opacity(0.25) : .gray.opacity(0.2))
+                    .foregroundColor(.black)
+                    .cornerRadius(4)
                     
                     Spacer()
                     
                     Button("Hard") {
                         self.settings.level = .hard
+                        self.level.type = .hard
+                        self.disabled = false
                     }
+                    .padding()
+                    .background(level.type == .hard ? .green.opacity(0.25) : .gray.opacity(0.2))
+                    .foregroundColor(.black)
+                    .cornerRadius(4)
                     
                     Spacer()
                 }
@@ -52,12 +77,18 @@ struct LevelView: View {
                      label: {
                          Text("START")
                      })
+                    .padding()
+                    .background(disabled ? .gray.opacity(0.2) : .blue.opacity(0.25))
+                    .foregroundColor(.black)
+                    .cornerRadius(4)
+                    .disabled(disabled)
                 
                 Spacer()
             }
         
             .onAppear {
                 settings = GameSettings()
+                level = LevelViewLevel()
             }
     }
 }
