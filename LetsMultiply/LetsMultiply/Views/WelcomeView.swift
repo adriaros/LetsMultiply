@@ -13,25 +13,31 @@ struct WelcomeView: View {
         
         NavigationView {
             
-            VStack {
+            ZStack {
                 
-                Spacer()
+                LinearGradient(gradient: Gradient(colors: [.blue.opacity(0.4), .green.opacity(0.3), .yellow.opacity(0.2)]), startPoint: .top, endPoint: .bottom)
+                                .edgesIgnoringSafeArea(.all)
                 
-                Text("Welcome to\nLet's Multiply!")
-                    .multilineTextAlignment(.center)
-                    .font(.title)
-                    .foregroundColor(.red)
-                
-                Spacer()
-                
-                NavigationLink(
-                     destination: LevelView(),
-                     label: {
-                         Text("START")
-                     })
-                    .selected(true)
-                 
-                Spacer()
+                VStack {
+                    
+                    Spacer()
+                    
+                    Text("Welcome to\nLet's Multiply!")
+                        .multilineTextAlignment(.center)
+                        .font(.title)
+                        .foregroundColor(.black)
+                    
+                    Spacer()
+                    
+                    NavigationLink(
+                         destination: LevelView(),
+                         label: {
+                             Text("START")
+                         })
+                        .selected(true)
+                     
+                    Spacer()
+                }
             }
         }
     }

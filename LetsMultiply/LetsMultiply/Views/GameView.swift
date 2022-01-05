@@ -21,10 +21,16 @@ struct GameView: View {
     }
 
     var body: some View {
-        if !settings.isGameOver {
-            gameView
-        } else {
-            markView
+        ZStack {
+            
+            LinearGradient(gradient: Gradient(colors: [.blue.opacity(0.4), .green.opacity(0.3), .yellow.opacity(0.2)]), startPoint: .top, endPoint: .bottom)
+                            .edgesIgnoringSafeArea(.all)
+            
+            if !settings.isGameOver {
+                gameView
+            } else {
+                markView
+            }
         }
     }
     
@@ -41,9 +47,12 @@ struct GameView: View {
                 Text("\(settings.currentQuestion.multiplier) x \(settings.currentQuestion.multiplicand)")
                     .padding(.horizontal, 60)
                 
-                TextField("Write here the result", text: $result)
+                TextField("Result", text: $result)
                                         .keyboardType(.decimalPad)
-                                        .padding(.horizontal, 12)
+                                        .fixedSize(horizontal: true, vertical: false)
+                                        .padding()
+                                        .border(.black, width: 1.0)
+                                        .multilineTextAlignment(.center)
             }
             
             Spacer()

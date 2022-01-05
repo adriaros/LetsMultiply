@@ -18,13 +18,18 @@ struct LevelView: View {
     @State private var disabled = true
     
     var body: some View {
+        
+        ZStack {
+            
+            LinearGradient(gradient: Gradient(colors: [.blue.opacity(0.4), .green.opacity(0.3), .yellow.opacity(0.2)]), startPoint: .top, endPoint: .bottom)
+                            .edgesIgnoringSafeArea(.all)
             
             VStack {
                 
                 Text("Choose the difficult")
                     .multilineTextAlignment(.center)
                     .font(.title)
-                    .foregroundColor(.red)
+                    .foregroundColor(.black)
                     .padding()
                 
                 Spacer()
@@ -73,12 +78,13 @@ struct LevelView: View {
                 
                 Spacer()
             }
+        }
         
-            .onAppear {
-                settings = GameSettings()
-                level = LevelViewLevel()
-                disabled = true
-            }
+        .onAppear {
+            settings = GameSettings()
+            level = LevelViewLevel()
+            disabled = true
+        }
     }
 }
 
